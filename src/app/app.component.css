@@ -1,0 +1,17 @@
+label{
+  margin-right: 20px;
+}
+.card-title{
+  font-size: 1.2rem;
+}
+
+.strikethrough{
+  text-decoration: line-through red;
+}
+.checkbox{
+  margin-top:10px;
+  margin-left:12px;
+}
+.edit-button{
+  margin-right: 6px;
+}
