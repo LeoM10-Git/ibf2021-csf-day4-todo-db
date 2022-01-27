@@ -89,7 +89,10 @@ export class AppComponent {
           this.form.value.dueDate,
           taskId
         );
-
+    this.taskFormControl.reset();
+    this.priorityFormControl.reset();
+    this.dueDateFormControl.reset();
+    this.toUpdate = true;
   }
 
   complete(checked: boolean) {
