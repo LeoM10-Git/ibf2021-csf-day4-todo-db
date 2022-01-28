@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TodoServiceService {
-  private apiUrl = "http://localhost:3000/task"
+  private apiUrl = "https://node-db-a.herokuapp.com/task"
 
   constructor(private httpClient: HttpClient) { }
 
