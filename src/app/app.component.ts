@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Task} from "./Task";
 import {v4 as uuidv4} from 'uuid';
+import {TodoServiceService} from "./todo-service.service";
+import {single} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,8 @@ export class AppComponent {
   checked: boolean=false;
   key: string = '';
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder,
+              private todoService: TodoServiceService){
     this.tomorrow.setDate(this.tomorrow.getDate()+1)
     this.form = this.fb.group({
       task: this.taskFormControl,
@@ -32,16 +35,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void{
-
-    for(let i=0;i<localStorage.length; i++) {
-      this.key = localStorage.key( i )!;
-      if (this.key == null) {
-        return ;
-      } else{
-        let item = JSON.parse( localStorage.getItem( this.key )|| '');
-        this.todoValues.push( item );
-      }
-    }
+    this.todoService.getTasks().subscribe(tasks => this.todoValues = tasks)
   }
   addToDo() {
       console.log("add todo");
@@ -57,19 +51,18 @@ export class AppComponent {
     this.taskFormControl.reset();
     this.priorityFormControl.reset();
     this.dueDateFormControl.reset();
-    localStorage.setItem(taskId, JSON.stringify(singleTodo))
+    this.todoService.addTask(singleTodo).subscribe(task => {console.log(task)});
   }
 
   deleteTask(taskId: string){
+    console.log(this.todoValues[this.todoValues.findIndex(task => task.taskId === taskId)])
+    this.todoService.deleteTask(this.todoValues[this.todoValues.findIndex(task => task.taskId === taskId)])
+      .subscribe(task => console.log("task deleted"));
     this.todoValues = this.todoValues.filter(task => task.taskId !== taskId)
-    localStorage.removeItem(taskId)
   }
 
   editTask(task: Task){
     this.toUpdate = false;
-    // console.log(task.dueDate)
-    // let date = moment(task.dueDate).format("DD/MM/YYYY");
-    // console.log(typeof (date));
     this.taskFormControl = new FormControl(`${task.task}`, [Validators.required]);
     this.priorityFormControl = new FormControl(`${task.priority}`, [Validators.required]);
     this.dueDateFormControl = new FormControl(task.dueDate, [Validators.required]);
@@ -93,6 +86,8 @@ export class AppComponent {
     this.priorityFormControl.reset();
     this.dueDateFormControl.reset();
     this.toUpdate = true;
+    this.todoService.updateTask(this.todoValues[this.todoValues.findIndex(task => task.taskId === taskId)])
+      .subscribe(task => {console.log(task)});
   }
 
   complete(checked: boolean) {

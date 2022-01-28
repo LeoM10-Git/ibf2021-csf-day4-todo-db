@@ -21,6 +21,7 @@ import {
 
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import {MatCardModule} from "@angular/material/card";
     FormsModule,
     ReactiveFormsModule,
     MomentDateModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
