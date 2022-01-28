@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1643391501088,
+  "index": "ibf2021-csf-day4-todo-db/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "ibf2021-csf-day4-todo-db/favicon.ico",
+        "ibf2021-csf-day4-todo-db/index.html",
+        "ibf2021-csf-day4-todo-db/main.fa922b0c46039e9a.js",
+        "ibf2021-csf-day4-todo-db/manifest.webmanifest",
+        "ibf2021-csf-day4-todo-db/polyfills.c71e1c0993291489.js",
+        "ibf2021-csf-day4-todo-db/runtime.f0cec84504475f14.js",
+        "ibf2021-csf-day4-todo-db/styles.10a3678fc5e4410f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-128x128.png",
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-144x144.png",
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-152x152.png",
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-192x192.png",
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-384x384.png",
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-512x512.png",
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-72x72.png",
+        "ibf2021-csf-day4-todo-db/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "ibf2021-csf-day4-todo-db/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "ibf2021-csf-day4-todo-db/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "ibf2021-csf-day4-todo-db/index.html": "dca9a8074dc0ec6255a7036cd710e0ba0787799b",
+    "ibf2021-csf-day4-todo-db/main.fa922b0c46039e9a.js": "a93fead71e2bae11fab53d245aa565a742b0f026",
+    "ibf2021-csf-day4-todo-db/manifest.webmanifest": "904eaa30afb83fcb5a02d874eedaab8206816998",
+    "ibf2021-csf-day4-todo-db/polyfills.c71e1c0993291489.js": "4c73b15454ed44468d89e953022ca351758a8cee",
+    "ibf2021-csf-day4-todo-db/runtime.f0cec84504475f14.js": "b01c5fc884c156f9b92ecc12baff9d6ceaff3471",
+    "ibf2021-csf-day4-todo-db/styles.10a3678fc5e4410f.css": "04ef123665db54ae19aa9038b8f884035e977c87"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
