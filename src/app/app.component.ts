@@ -23,6 +23,7 @@ export class AppComponent {
   taskId: string='';
   checked: boolean=false;
   key: string = '';
+  status: boolean = false;
 
   constructor(private fb: FormBuilder,
               private todoService: TodoServiceService){
@@ -44,7 +45,8 @@ export class AppComponent {
       this.form.value.task,
       this.form.value.priority,
       this.form.value.dueDate,
-      taskId
+      taskId,
+      this.status
     )
 
     this.todoValues.push(singleTodo);
@@ -67,6 +69,7 @@ export class AppComponent {
     this.priorityFormControl = new FormControl(`${task.priority}`, [Validators.required]);
     this.dueDateFormControl = new FormControl(task.dueDate, [Validators.required]);
     this.taskId = task.taskId;
+    this.status = task.status;
     this.form = this.fb.group({
       task: this.taskFormControl,
       priority: this.priorityFormControl,
@@ -74,13 +77,14 @@ export class AppComponent {
     })
   }
 
-  updateTask(taskId: string){
+  updateTask(taskId: string, status: boolean){
         console.log(taskId);
     this.todoValues[this.todoValues.findIndex(task => task.taskId === taskId)] = new Task(
           this.form.value.task,
           this.form.value.priority,
           this.form.value.dueDate,
-          taskId
+          taskId,
+          status
         );
     this.taskFormControl.reset();
     this.priorityFormControl.reset();
@@ -90,7 +94,9 @@ export class AppComponent {
       .subscribe(task => {console.log(task)});
   }
 
-  complete(checked: boolean) {
-    this.checked = checked;
+  complete(checked: boolean, taskId: string) {
+    this.todoValues[this.todoValues.findIndex(task => task.taskId === taskId)].status = checked
+    this.todoService.updateStatus(this.todoValues[this.todoValues.findIndex(task => task.taskId === taskId)])
+      .subscribe(task => {console.log(task)});
   }
 }

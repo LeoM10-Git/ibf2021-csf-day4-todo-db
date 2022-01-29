@@ -12,7 +12,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TodoServiceService {
-  private apiUrl = "https://node-db-a.herokuapp.com/task"
+  // private apiUrl = "https://node-db-a.herokuapp.com/task"
+  private apiUrl = "http://localhost:3000/task"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -34,11 +35,8 @@ export class TodoServiceService {
     return this.httpClient.post<Task>(`${this.apiUrl}`, task, httpOptions);
   }
 
-
-
-
-
-
-
-
+  updateStatus(task: Task): Observable<Task>{
+    const url = `${this.apiUrl}/${task.taskId}`;
+    return this.httpClient.put<Task>(url, task, httpOptions);
+  }
 }

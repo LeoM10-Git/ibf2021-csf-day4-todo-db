@@ -49,7 +49,7 @@
         <div fxLayoutGap="1vw" >
           <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || !toUpdate">Add</button>
           <button mat-raised-button color="primary" type="button"
-                  [disabled]="toUpdate" (click)="updateTask(taskId)">Update</button>
+                  [disabled]="toUpdate" (click)="updateTask(taskId, status)">Update</button>
         </div>
       </mat-card-content>
     </mat-card>
@@ -63,8 +63,8 @@
             <mat-card  >
               <mat-card-title class="card-title">{{t.task}}</mat-card-title>
               <div fxLayout="row wrap" fxLayoutAlign="space-between">
-                <mat-checkbox [ngClass]="checked? 'strikethrough': ''" class="checkbox" color="primary"
-                              [checked]="checked" (change)="complete($event.checked)">
+                <mat-checkbox [ngClass]="t.status? 'strikethrough': ''" class="checkbox" color="primary"
+                              [checked]="t.status" (change)="complete($event.checked, t.taskId)">
                   {{t.priority}}&nbsp;&nbsp;&nbsp;&nbsp;{{t.dueDate | date:"MMM d, y"}}&nbsp;&nbsp;
                 </mat-checkbox>
 
